@@ -1,0 +1,23 @@
+SELECT 
+		a.DateRecorded AS [Date Recorded],
+		upn.displayname AS [Username],
+		COALESCE(a.FolderPath, f.FolderPath) AS [Folder Path],
+		a.Action,
+		a.Notes
+	FROM tbAuditFolder a WITH (NOLOCK)
+	INNER JOIN tbUser u WITH (NOLOCK)
+		ON u.userid = a.userid
+		AND u.OrganizationId = #Organization
+	INNER JOIN vUserDisplayName upn WITH (NOLOCK)
+		ON u.UserId = upn.UserId
+	LEFT JOIN tbFolder f WITH (NOLOCK)
+		ON f.FolderId = a.Folderid
+	WHERE
+		a.DateRecorded  >= #STARTTODAY
+		AND 
+		a.DateRecorded  <= #ENDTODAY
+		AND
+		a.action like 'EDITPERMISSIONS'
+		
+	ORDER BY 
+		1 DESC, 2,3,4,5
