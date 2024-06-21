@@ -1,0 +1,1 @@
+select DisplayName from tbUser where Enabled = 1 and TwoFactor = 0 and IsApplicationAccount != 1
