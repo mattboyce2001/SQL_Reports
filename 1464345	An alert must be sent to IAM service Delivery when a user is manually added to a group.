@@ -17,3 +17,4 @@ g.IsPersonal = 0
 AND g.SystemGroup = 0
 AND g.Active = 1
 AND u.[Enabled] = 1
+AND u.IsApplicationAccount = 0
