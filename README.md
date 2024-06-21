@@ -18,3 +18,14 @@ Modification of SQL Report 18
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/044c1ba6-5e37-44ce-bfa3-253364dbcabe)
 
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/3c357c89-de2f-4427-bcb2-eb51efc78b5e)
+
+**1464695** - An alert must be sent to IAM service Delivery if a secret exists in more than one folder 
+
+3 SQL Reports
+
+Duplicate Secret Names
+Duplicate Secret Name Count
+Duplicate Usernames - Work in Progress, requires Usernames to be exposed for display. 
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/98ed4c74-3a16-4ce5-afc6-10e8768c9b33)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/60aee0db-8fed-44cf-b61a-b957dcc2d9ee)
