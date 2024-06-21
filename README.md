@@ -71,5 +71,5 @@ Typically, filter on domain (there may be users that intentionally don't have MF
 
 Pipeline JSON available for import
 
-
+https://github.com/mattboyce2001/SQL_Reports/blob/main/1464668%09An%20alert%20must%20be%20sent%20to%20IAM%20Service%20Delivery%20if%20a%20user%20is%20manually%20configured%20without%202FA%20-%20Event%20Pipeline
 
