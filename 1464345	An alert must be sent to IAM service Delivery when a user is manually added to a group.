@@ -1,0 +1,19 @@
+SELECT
+gdn.DisplayName AS [GroupName],
+udn.DisplayName AS [UserName],
+g.lastmodifieddate as [DateAdded]
+FROM
+tbGroup g WITH (NOLOCK)
+INNER JOIN
+vGroupDisplayName gdn WITH (NOLOCK) ON g.GroupId = gdn.GroupId
+INNER JOIN
+tbUserGroup ug WITH (NOLOCK) ON g.GroupId = ug.GroupId
+INNER JOIN
+tbUser u WITH (NOLOCK) ON ug.UserId = u.UserId
+INNER JOIN
+vUserDisplayName udn WITH (NOLOCK) ON u.UserId = udn.UserId
+WHERE
+g.IsPersonal = 0
+AND g.SystemGroup = 0
+AND g.Active = 1
+AND u.[Enabled] = 1
