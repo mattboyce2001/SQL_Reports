@@ -73,3 +73,22 @@ Pipeline JSON available for import
 
 https://github.com/mattboyce2001/SQL_Reports/blob/main/1464668%09An%20alert%20must%20be%20sent%20to%20IAM%20Service%20Delivery%20if%20a%20user%20is%20manually%20configured%20without%202FA%20-%20Event%20Pipeline
 
+
+**1464347** An alert must be sent to IAM service Delivery if a secret policy is added to a Folder or secret manually (Work in Progress)
+
+SQL Report - Work in Progress, combination of folder and secret audit. May need clarification if something needs to denote the actual change
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/c22e5224-3a87-48f6-96cd-83c6ff8ee5c2)
+
+Event Subscription (Folder)
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/6b87b86c-3d5a-41d7-b832-c8ce2a282a64)
+
+Event Subscription (Secret)
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/fcd7c1d2-5e1e-475f-adb8-0f7e8a638d17)
+
+
+
+
+
