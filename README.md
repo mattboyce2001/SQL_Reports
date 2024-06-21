@@ -55,13 +55,21 @@ Users without MFA
 
 Event Subscription, will show changed. No event for Removed.
 
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/bcbfa7d0-fb16-4c4d-8c29-f07c54e305c4)
+
 SIEM - Two Factor Changed
 
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/f16b9b38-7d41-452c-9e61-d3dc300b50c9)
 
 Event Pipeline
 
-![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/bcbfa7d0-fb16-4c4d-8c29-f07c54e305c4)
+Typically, filter on domain (there may be users that intentionally don't have MFA)
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/39583c8d-98c8-4a51-8c18-31b137b2cf27)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/308be55c-69d4-4a44-b219-31ddc42fcc22)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/8a35fd26-43a9-4f22-b790-fd1a24dea320)
+
+Pipeline JSON available for import
 
 
 
