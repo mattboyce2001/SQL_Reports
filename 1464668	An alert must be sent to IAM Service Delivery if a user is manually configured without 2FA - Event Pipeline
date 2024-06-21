@@ -1,0 +1,123 @@
+      {
+  "EventPipelinePolicy": {
+    "ReuseExistingPipelines": true,
+    "Pipelines": {
+      "Value": [
+        {
+          "EventPipelineName": {
+            "Value": "Enable Two Factor"
+          },
+          "EventPipelineDescription": {
+            "Value": ""
+          },
+          "Active": {
+            "Value": true
+          },
+          "Triggers": {
+            "Value": [
+              {
+                "EventActionId": {
+                  "Value": 16
+                }
+              }
+            ]
+          },
+          "Filters": {
+            "Value": [
+              {
+                "EventPipelineFilterName": {
+                  "Value": "UserDomain"
+                },
+                "EventPipelineFilterId": {
+                  "Value": 15
+                },
+                "SortOrder": {
+                  "Value": 1
+                },
+                "Settings": {
+                  "Value": [
+                    {
+                      "SettingName": {
+                        "Value": "DomainId"
+                      },
+                      "SettingValue": {
+                        "Value": "1"
+                      }
+                    },
+                    {
+                      "SettingName": {
+                        "Value": "NotCondition"
+                      },
+                      "SettingValue": {
+                        "Value": "False"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "EventPipelineFilterName": {
+                  "Value": "UserHasTwoFactor"
+                },
+                "EventPipelineFilterId": {
+                  "Value": 19
+                },
+                "SortOrder": {
+                  "Value": 2
+                },
+                "Settings": {
+                  "Value": [
+                    {
+                      "SettingName": {
+                        "Value": "TwoFactorEnabled"
+                      },
+                      "SettingValue": {
+                        "Value": "False"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "Tasks": {
+            "Value": [
+              {
+                "EventPipelineTaskName": {
+                  "Value": "EnableTOTPAuth"
+                },
+                "EventPipelineTaskId": {
+                  "Value": 47
+                },
+                "SortOrder": {
+                  "Value": 1
+                },
+                "Settings": {
+                  "Value": []
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ExternalInstanceId": "00000000-0000-0000-0000-000000000000",
+    "EventEntityTypeId": {
+      "Value": 1
+    },
+    "IsSystem": false,
+    "EventPipelinePolicyName": {
+      "Value": "Enable Two Factor if User Does Not have it (Domain)"
+    },
+    "EventPipelinePolicyDescription": {
+      "Value": null
+    },
+    "Active": {
+      "Value": false
+    }
+  },
+  "ReuseExistingPipelines": true,
+  "ExternalInstanceId": "88f66bb3-dc52-4eec-b35b-9d76c8f6c1fc",
+  "IsSystem": false
+}
+    
