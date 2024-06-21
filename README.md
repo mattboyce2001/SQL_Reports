@@ -1,4 +1,4 @@
-1464696 - An Alert must be sent to IAM Service Delivery when an account is onboarded to Delinea manually - SQL Report 
+**1464696** - An Alert must be sent to IAM Service Delivery when an account is onboarded to Delinea manually - SQL Report 
 
 Email based alert can be sent with Healthcheck functionality. Event Subscription can also be deployed
 
