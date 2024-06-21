@@ -88,7 +88,9 @@ Event Subscription (Secret)
 
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/fcd7c1d2-5e1e-475f-adb8-0f7e8a638d17)
 
+**1464345	** An alert must be sent to IAM service Delivery when a user is manually added to a group - Work in Progress
 
+SQL Report - Shows membership and last change. Can filter this down to todays change. If a user is not in the group it shouldn't appear (in theory). To be configured.
 
-
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/bd9c34ec-8bd5-48d2-8910-aa2b0150c064)
 
