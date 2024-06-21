@@ -24,7 +24,13 @@ Modification of SQL Report 18
 3 SQL Reports
 
 Duplicate Secret Names
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/a2628fb9-00e5-4ed2-ba04-8fa7d40b728f)
+
 Duplicate Secret Name Count
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/df6d05a7-e360-44ad-bb62-250e2cb19bea)
+
+
 Duplicate Usernames - Work in Progress, requires Usernames to be exposed for display. 
 
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/98ed4c74-3a16-4ce5-afc6-10e8768c9b33)
