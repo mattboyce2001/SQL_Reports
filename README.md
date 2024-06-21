@@ -35,3 +35,33 @@ Duplicate Usernames - Work in Progress, requires Usernames to be exposed for dis
 
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/98ed4c74-3a16-4ce5-afc6-10e8768c9b33)
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/60aee0db-8fed-44cf-b61a-b957dcc2d9ee)
+
+**1464668** An alert must be sent to IAM Service Delivery if a user is manually configured without 2FA
+
+2 SQL Reports
+
+Possible options
+
+Status Changed today
+Changed from this MFA to this MFA
+
+Audit Report (who did it)
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/c2e81f5b-7d42-4e8a-8193-03cb489d9037)
+
+Users without MFA
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/a3655bdf-7fa4-4a0e-9395-fd4ce75b0afd)
+
+Event Subscription, will show changed. No event for Removed.
+
+SIEM - Two Factor Changed
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/f16b9b38-7d41-452c-9e61-d3dc300b50c9)
+
+Event Pipeline
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/bcbfa7d0-fb16-4c4d-8c29-f07c54e305c4)
+
+
+
