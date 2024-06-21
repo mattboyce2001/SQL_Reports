@@ -1,0 +1,26 @@
+SELECT 
+			a.DateRecorded AS [Date Recorded],
+			upn2.displayname AS [UserName],
+			upn.displayname AS [Affected UserName],
+			a.[Action],
+			a.[Notes],
+			a.[ipaddress] AS [IP Address],
+			u.IsLockedOut AS [Is Locked Out]
+		FROM tbaudituser a WITH (NOLOCK)
+			INNER JOIN tbuser u WITH (NOLOCK)
+				 ON u.userid = a.UserIdAffected
+				 AND u.OrganizationId = #Organization
+			INNER JOIN vUserDisplayName upn WITH (NOLOCK)
+				ON u.UserId = upn.UserId
+			INNER JOIN vUserDisplayName upn2 WITH (NOLOCK)
+				ON a.UserId = upn2.UserId
+			WHERE a.DateRecorded >= #StartYesterday
+				AND a.DateRecorded <= #EndTODAY	
+				AND A.ACTION like '%TWOFACTORUPDATED%'
+                AND A.NOTES = '< None >'
+			ORDER BY 
+				1 DESC 
+				,2 
+				,3
+				,4				
+				,6
