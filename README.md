@@ -94,3 +94,25 @@ SQL Report - Shows membership and last change. Can filter this down to todays ch
 
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/bd9c34ec-8bd5-48d2-8910-aa2b0150c064)
 
+**1464718** An alert must be sent to IAM Service Delivery if a secret does not have a onboarding ServiceNow ticket logged
+
+This displays the secrets missing the field Servicenowreference. This is across all templates but could be set to target specific templates.
+
+Report will reduce in size as onboarding references are added. As previous, the subscription to the SQL report can be used with the health check to only produce a report when there is an exception (If all secrets in scope have service now references it will not trigger). 
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/e7569185-b0cc-40cc-8f4a-83dfc645aa3c)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/759090eb-ba70-498e-b175-edbee0e75115)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/c922ab91-4a5e-43f6-b48c-e65d35108350)
+
+**1464318**	An alert must be sent to IAM Service Delivery when manual changes are made to event subscriptions
+
+Edited the Standard "Event Subscriptions Activity" report to allow a duplicate in the instance. Added a "Today" filter with the intention of using a subscription and health check to show exceptions.
+
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/3a6f9c62-7137-41b1-971d-8e44dc6f611b)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/4a3ddae8-9106-41a8-ad20-c0dbcf6a750c)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/621be921-9263-49ce-aa1d-2ea1f7faa58a)
+
+
+
+
