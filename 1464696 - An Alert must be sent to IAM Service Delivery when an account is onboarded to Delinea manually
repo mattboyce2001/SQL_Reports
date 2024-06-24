@@ -17,6 +17,7 @@ SELECT
 			WHERE a.DateRecorded >= #StartYesterday
 				AND a.DateRecorded <= #EndTODAY	
 				AND A.ACTION like '%CreateUser%'
+				AND u.isapplicationaccount ='0'
 			ORDER BY 
 				1 DESC 
 				,2 
