@@ -10,6 +10,15 @@ USER	1	CREATE	1	A user was created
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/f65ab3b3-c190-428d-bcc0-4c59188966e6)
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/4a8d426f-3d7d-4e78-b3ac-1c12da6f599d)
 
+24/06/2024
+
+Updated with "Is application account" filter
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/b5eab148-3515-4937-9ded-b099faf4094f)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/de098eea-2087-40ce-9e8f-68ec9efe0eb7)
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/4aae522f-cb41-439d-8ba5-8967daf07849)
+
+
 
 **1464699** - Folder Activity with permission changes
 
