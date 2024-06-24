@@ -1,0 +1,35 @@
+Select 
+s.SecretID,
+s.SecretName AS [Secret Name], 
+s.SecretPolicyID AS [Secret Policy ID],
+sp.SecretPolicyName AS [Secret Policy],
+si.LastModifiedDate AS [Last Password Change],
+fo.FolderPath As [Folder Path],
+fo.FolderName As [Folder Name],
+
+CASE 
+                                                WHEN CheckOutEnabled = 0 THEN 'No' 
+                                                WHEN CheckOutEnabled = 1 THEN 'Yes' 
+                                                                                END       AS [Checkout Enabled], 
+CASE 
+                                                WHEN IsSessionRecordingEnabled = 0 THEN 'No' 
+                                                WHEN IsSessionRecordingEnabled = 1 THEN 'Yes' 
+                                                                                END       AS [Session Recording Enabled], 
+
+CASE 
+                                                WHEN HideLauncherPassword = 0 THEN 'No' 
+                                                WHEN HideLauncherPassword = 1 THEN 'Yes' 
+                                                                                END       AS [Password Masked] 
+                 
+From tbsecret s 
+
+
+FULL JOIN tbSecretPolicy sp WITH (NOLOCK) 
+ON sp.SecretPolicyId = s.SecretPolicyId
+
+FULL JOIN tbFolder fo ON fo.FolderId = S.FolderId 
+INNER JOIN tbSecretType st on st.SecretTypeID = s.SecretTypeID 
+                                INNER JOIN tbSecretItem si on si.SecretID = s.SecretID and st.ExpirationFieldId = si.SecretFieldID 
+                                WHERE si.LastModifiedDate >= (GetDate() - 90) AND s.Active = 1  
+                                AND sp.SecretPolicyID is NULL
+                                AND FolderPath LIKE #FOLDERPATH + '%' 
