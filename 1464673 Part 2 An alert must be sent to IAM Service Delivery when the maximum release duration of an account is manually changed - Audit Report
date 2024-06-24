@@ -5,7 +5,8 @@ ISNULL(f.FolderPath, N'No folder assigned') as [Folder Path],
 s.secretname AS [Secret Name],
 a.Action,
 a.Notes,
-a.ipaddress As [IP Address]
+a.ipaddress As [IP Address],
+u.isapplicationaccount
 FROM tbAuditSecret a WITH (NOLOCK)
 INNER JOIN tbUser u WITH (NOLOCK)
 ON u.UserId = a.UserId AND u.OrganizationId = #Organization
@@ -24,6 +25,7 @@ AND
 a.notes LIKE '%Policy changed from %% to "%No Policy%"%'
 OR
 a.notes like '%check out disabled%'
+AND isapplicationaccount = '0'
 )
 ORDER BY
 1 DESC, 2, 3, 4, 5, 6, 7
