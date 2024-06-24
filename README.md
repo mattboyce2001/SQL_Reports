@@ -113,6 +113,10 @@ Edited the Standard "Event Subscriptions Activity" report to allow a duplicate i
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/4a3ddae8-9106-41a8-ad20-c0dbcf6a750c)
 ![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/621be921-9263-49ce-aa1d-2ea1f7faa58a)
 
+1464673 Part 2 An alert must be sent to IAM Service Delivery when the maximum release duration of an account is manually changed - Audit Report
 
+Report will log the policy being changed to no policy or the the check out time being disabled. TBC possibility of showing more detail (time changed for 2 hours to 8 hours etc).
+
+![image](https://github.com/mattboyce2001/SQL_Reports/assets/90758673/8198244e-e3fc-4952-8941-8598f2972807)
 
 
