@@ -12,6 +12,8 @@ SELECT a.[DateRecorded] as 'Date Recorded'
 						ON a.UserId = vudn.UserId
 					INNER JOIN tbEventSubscription es
 						ON a.ItemId = es.EventSubscriptionId
+					INNER JOIN tbuser u2 WITH (NOLOCK) 
+					ON a.UserId = u2.UserId
 					WHERE
 						at.AuditTypeName = 'EventSubscription'
 						AND
@@ -20,5 +22,7 @@ SELECT a.[DateRecorded] as 'Date Recorded'
 						a.DateRecorded >= #ENDYESTERDAY   
 						AND 
 						a.DateRecorded <= #ENDTODAY   
+						AND u2.displayname NOT LIKE '%' + #CUSTOMTEXT + '%'
+						--AND u2.IsApplicationAccount = '0'
 					ORDER BY
 						1 DESC, 2, 3, 4
