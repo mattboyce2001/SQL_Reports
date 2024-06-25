@@ -19,7 +19,7 @@ ON a.UserId = u2.UserId
 WHERE a.DateRecorded >= #StartYesterday
 AND a.DateRecorded <= #EndTODAY
 AND a.[Action] LIKE '%CreateUser%'
-AND u2.IsApplicationAccount = '0'
+AND u2.displayname NOT LIKE '%' + #CUSTOMTEXT + '%'
 ORDER BY
 1 DESC,
 2,
