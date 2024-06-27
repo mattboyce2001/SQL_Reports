@@ -1,0 +1,60 @@
+"SELECT DISTINCT
+
+        a.DateRecorded ,
+        a.action,
+
+        upn.displayname ,
+
+        ISNULL(f.FolderPath, N'No folder assigned') ,
+
+        s.secretname,
+
+        --a.Action,
+
+        --a.Notes,
+
+        --a.ipaddress,
+
+       -- si2.ItemValue as AccountName,
+
+        (select customURL from tbconfiguration) as 'paminstance',
+
+      --  si1.ItemValue as 'FQDN/EndPoint',
+
+        a.Ticketnumber as 'TicketNumber:PAM TaskNumber',
+
+        s.CheckOutTime as PasswordCheckOutTime,
+
+        s.PasswordChangeStatusLastChanged AS PasswordUserCheckInTime,
+
+        s.CheckOutEndTime AS PasswordAutoExpiredTime
+
+ 
+
+    FROM tbauditsecret a WITH (NOLOCK)
+
+    INNER JOIN tbuser u WITH (NOLOCK) 
+            ON u.userid = a.userid 
+    INNER JOIN vUserDisplayName upn WITH (NOLOCK)
+        ON u.UserId = upn.UserId
+    INNER JOIN tbsecret s WITH (NOLOCK)
+        ON s.secretid = a.secretid
+    LEFT JOIN tbFolder f WITH (NOLOCK)
+        ON s.FolderId = f.FolderId
+    left join tbSecretItem si1 with (NOLOCK)
+        on s.SecretID = si1.SecretID
+    left join tbSecretField sf1
+
+        on sf1.SecretFieldID = si1.SecretFieldID and sf1.SecretFieldName = 'fqdn'
+
+    left join tbSecretItem si2 with (NOLOCK)
+
+        on s.SecretID = si2.SecretID
+
+    left join tbSecretField sf2
+
+    on sf2.SecretFieldID = si2.SecretFieldID and sf2.SecretFieldName = 'UserName'
+
+ 
+
+where s.active = 1 and a.action like '%Disabled Approval%'"
