@@ -1,24 +1,61 @@
-SELECT
-a.DateRecorded AS [Date Recorded],
-upn2.displayname AS [UserName],
-upn.displayname AS [Affected UserName],
-a.[Action],
-a.[Notes],
-a.[ipaddress] AS [IP Address],
-u.IsLockedOut AS [Is Locked Out]
-FROM tbaudituser a WITH (NOLOCK)
-INNER JOIN tbuser u WITH (NOLOCK)
-ON u.userid = a.UserIdAffected
-AND u.OrganizationId = #Organization
-INNER JOIN vUserDisplayName upn WITH (NOLOCK)
-ON u.UserId = upn.UserId
-INNER JOIN vUserDisplayName upn2 WITH (NOLOCK)
-ON a.UserId = upn2.UserId
-INNER JOIN tbuser u2 WITH (NOLOCK) 
-ON a.UserId = u2.UserId
-WHERE 
+SELECT DISTINCT
 
- a.[Action] LIKE '%CreateUser%'
- and 
- upn2.displayname != 'mahesh.bitla@thycotic.com' -- application account username
+        a.DateRecorded ,
+        a.action,
+
+        upn.displayname ,
+
+        ISNULL(f.FolderPath, N'No folder assigned') ,
+
+        s.secretname,
+
+        --a.Action,
+
+        --a.Notes,
+
+        --a.ipaddress,
+
+
+
+        (select customURL from tbconfiguration) as 'paminstance',
+
+  
+
+        a.Ticketnumber as 'TicketNumber:PAM TaskNumber',
+
+        s.CheckOutTime as PasswordCheckOutTime,
+
+        s.PasswordChangeStatusLastChanged AS PasswordUserCheckInTime,
+
+        s.CheckOutEndTime AS PasswordAutoExpiredTime
+
  
+
+    FROM tbauditsecret a WITH (NOLOCK)
+
+    INNER JOIN tbuser u WITH (NOLOCK) 
+            ON u.userid = a.userid 
+    INNER JOIN vUserDisplayName upn WITH (NOLOCK)
+        ON u.UserId = upn.UserId
+    INNER JOIN tbsecret s WITH (NOLOCK)
+        ON s.secretid = a.secretid
+    LEFT JOIN tbFolder f WITH (NOLOCK)
+        ON s.FolderId = f.FolderId
+    left join tbSecretItem si1 with (NOLOCK)
+        on s.SecretID = si1.SecretID
+    left join tbSecretField sf1
+
+        on sf1.SecretFieldID = si1.SecretFieldID and sf1.SecretFieldName = 'fqdn'
+
+    left join tbSecretItem si2 with (NOLOCK)
+
+        on s.SecretID = si2.SecretID
+
+    left join tbSecretField sf2
+
+    on sf2.SecretFieldID = si2.SecretFieldID and sf2.SecretFieldName = 'UserName'
+
+ 
+
+where s.active = 1 and a.action like '%CREATE%' and 
+ upn.displayname != 'mahesh.bitla@thycotic.com'
