@@ -1,0 +1,11 @@
+select 
+a.daterecorded
+,u.username
+,a.action 
+,a.notes
+
+ from tbadminlog a
+left join tbuser u on u.userid = a.userid
+
+where a.adminlogsectionid = 4 and notes = 'Administrator' and u.username = 'mahesh.bitla@thycotic.com'
+
