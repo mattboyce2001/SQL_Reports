@@ -1,0 +1,17 @@
+SELECT
+a.DateRecorded,
+upn2.displayname,
+upn.displayname as 'affecteduser',
+a.[Action],
+a.[Notes]
+FROM
+    tbAuditUser a
+
+	INNER JOIN tbuser u WITH (NOLOCK)
+				 ON u.userid = a.UserIdAffected
+				 AND u.OrganizationId = #Organization
+			INNER JOIN vUserDisplayName upn WITH (NOLOCK)
+				ON u.UserId = upn.UserId
+			INNER JOIN vUserDisplayName upn2 WITH (NOLOCK)
+				ON a.UserId = upn2.UserId
+where a.action like '%CREATE%' and upn2.displayname != 'mahesh.bitla@thycotic.com'
