@@ -1,28 +1,4 @@
-SELECT a.[DateRecorded] as 'Date Recorded'
-						,es.Name AS 'Event Subscription'
-						,vudn.[DisplayName] as 'Username'
-						,a.[Action]
-						,a.[IpAddress] as 'IP Address'
-						,a.[Notes]
-					FROM
-						[tbAudit] a WITH (NOLOCK)
-					INNER JOIN tbAuditType at
-						ON a.AuditTypeId = at.AuditTypeId
-					JOIN vUserDisplayName vudn WITH (NOLOCK)
-						ON a.UserId = vudn.UserId
-					INNER JOIN tbEventSubscription es
-						ON a.ItemId = es.EventSubscriptionId
-					INNER JOIN tbuser u2 WITH (NOLOCK) 
-					ON a.UserId = u2.UserId
-					WHERE
-						at.AuditTypeName = 'EventSubscription'
-						AND
-						es.OrganizationId = #ORGANIZATION
-						AND
-						a.DateRecorded >= #ENDYESTERDAY   
-						AND 
-						a.DateRecorded <= #ENDTODAY   
-						AND u2.displayname NOT LIKE '%' + #CUSTOMTEXT + '%'
-						--AND u2.IsApplicationAccount = '0'
-					ORDER BY
-						1 DESC, 2, 3, 4
+select a.audittypeid, a.daterecorded, a.action, u.username, es.Name, a.notes from tbAudit a
+left join tbuser u on u.userid = a.userid
+left join  tbEventSubscription es ON a.ItemId = es.EventSubscriptionId
+ where a.AuditTypeid = 2 and u.username != 'mahesh.bitla@thycotic.com'
