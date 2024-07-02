@@ -1,0 +1,16 @@
+SELECT
+u.username,
+g.groupname,
+a.action,
+a.notes,
+a.daterecorded
+FROM
+tbaudit a
+left join tbuser u on u.userid = a.userid
+left join tbgroup g on g.groupid = a.itemid
+
+
+where a.auditTypeId = 13 and a.action like '%EDIT%' and u.username != 'mahesh.bitla@thycotic.com'
+
+
+                
