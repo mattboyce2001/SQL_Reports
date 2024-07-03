@@ -22,10 +22,10 @@ AND
 a.DateRecorded <= #EndToday
 AND
 (
-a.notes LIKE '%Policy changed from %% to "%No Policy%"%'
-OR
-a.notes like '%check out disabled%'
-AND isapplicationaccount = '0'
+--a.notes LIKE '%Policy changed from %% to "%No Policy%"%'
+--OR
+a.notes like '%Checkout Interval Minutes%'
+
 )
 ORDER BY
 1 DESC, 2, 3, 4, 5, 6, 7
